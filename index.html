@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Master Advanced English — B2+ / C1 Complete Course</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Montserrat:wght@300;400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --navy:#0D1B3E;
+  --navy2:#162347;
+  --navy3:#1E2E5A;
+  --gold:#C9A84C;
+  --gold2:#E6C97A;
+  --gold3:#F5E3A8;
+  --cream:#FAF6EF;
+  --cream2:#F0EAE0;
+  --muted:rgba(250,246,239,.6);
+  --white:#fff;
+}
+html{scroll-behavior:smooth}
+body{font-family:'EB Garamond',Georgia,serif;background:var(--cream2);color:var(--navy);overflow-x:hidden}
+
+.gold{color:var(--gold)}.gold2{color:var(--gold2)}.italic{font-style:italic}
+.mono{font-family:'Montserrat',sans-serif}
+
+/* ─── NAVBAR ────────────────────────────────────── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(13,27,62,.96);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(201,168,76,.2);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 60px;height:64px;
+}
+.nav-brand{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--cream);letter-spacing:.04em}
+.nav-brand span{color:var(--gold2);font-style:italic}
+.nav-links{display:flex;align-items:center;gap:36px}
+.nav-links a{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:rgba(250,246,239,.65);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--gold2)}
+.nav-cta{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;background:var(--gold);color:var(--navy);padding:10px 24px;text-decoration:none;transition:background .2s,transform .15s}
+.nav-cta:hover{background:var(--gold2);transform:translateY(-1px)}
+
+/* ─── HERO ──────────────────────────────────────── */
+.hero{min-height:100vh;background:var(--navy);display:flex;align-items:center;position:relative;overflow:hidden;padding:100px 60px 80px}
+.hero-bg{position:absolute;inset:0;pointer-events:none}
+.hero-bg::before{content:'';position:absolute;top:-200px;right:-150px;width:700px;height:700px;background:var(--navy3);transform:rotate(18deg)}
+.hero-bg::after{content:'';position:absolute;bottom:-200px;left:-100px;width:500px;height:500px;background:var(--navy2);transform:rotate(-12deg)}
+.hero-arc{position:absolute;border:1px solid var(--gold);border-radius:50%;opacity:.06;pointer-events:none}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,.04) 1px,transparent 1px);background-size:64px 64px;pointer-events:none}
+.hero-inner{position:relative;z-index:5;max-width:1200px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 420px;gap:80px;align-items:center}
+.hero-left{display:flex;flex-direction:column;gap:0}
+
+.badge-row{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--gold);padding:7px 18px;width:fit-content;margin-bottom:36px}
+.badge-row span{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold2)}
+.badge-row .dot{width:4px;height:4px;border-radius:50%;background:var(--gold);flex-shrink:0}
+.hero-pre{width:56px;height:2px;background:var(--gold);margin-bottom:20px}
+.hero-h1{font-family:'Playfair Display',serif;font-size:78px;font-weight:900;line-height:.95;color:var(--cream);margin-bottom:6px}
+.hero-h1 em{color:var(--gold2);font-style:italic}
+.hero-h1b{font-family:'Playfair Display',serif;font-size:78px;font-weight:900;color:var(--cream);margin-bottom:28px}
+.hero-sub{font-family:'Montserrat',sans-serif;font-size:12px;font-weight:300;letter-spacing:.28em;text-transform:uppercase;color:var(--gold3);margin-bottom:40px;display:flex;align-items:center;flex-wrap:wrap;gap:6px}
+.hero-sub .sep{display:inline-block;width:4px;height:4px;border-radius:50%;background:var(--gold);opacity:.6}
+.hero-desc{font-size:19px;line-height:1.75;color:rgba(250,246,239,.72);max-width:520px;margin-bottom:48px}
+.hero-desc strong{color:var(--cream);font-weight:500}
+.cta-row{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.btn-primary{font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;background:var(--gold);color:var(--navy);padding:16px 40px;text-decoration:none;transition:all .25s;display:inline-block}
+.btn-primary:hover{background:var(--gold2);transform:translateY(-2px);box-shadow:0 8px 30px rgba(201,168,76,.3)}
+.btn-ghost{font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold2);text-decoration:none;display:inline-flex;align-items:center;gap:10px;border-bottom:1px solid rgba(201,168,76,.3);padding-bottom:2px;transition:all .2s}
+.btn-ghost:hover{color:var(--gold3);border-color:var(--gold2)}
+.hero-stats{display:flex;gap:40px;margin-top:48px;padding-top:40px;border-top:1px solid rgba(201,168,76,.2)}
+.stat-num{font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:var(--gold2);line-height:1;margin-bottom:4px}
+.stat-lbl{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+
+/* 3D book hero */
+.hero-book-wrap{perspective:1200px;perspective-origin:50% 40%;display:flex;align-items:center;justify-content:center}
+.hero-book{width:300px;height:420px;position:relative;transform-style:preserve-3d;transform:rotateX(5deg) rotateY(-30deg);animation:heroFloat 6s ease-in-out infinite;filter:drop-shadow(0 40px 60px rgba(0,0,0,.6))}
+@keyframes heroFloat{0%,100%{transform:rotateX(5deg) rotateY(-30deg) translateY(0)}50%{transform:rotateX(5deg) rotateY(-30deg) translateY(-16px)}}
+.hb-front{position:absolute;inset:0;background:var(--navy2);transform:translateZ(16px);overflow:hidden}
+.hb-front::before{content:'';position:absolute;top:0;left:0;right:0;height:36px;background:var(--gold);z-index:2}
+.hb-front::after{content:'';position:absolute;bottom:0;left:0;right:0;height:44px;background:var(--gold);z-index:2}
+.hb-geo1{position:absolute;top:-40px;right:-40px;width:180px;height:180px;background:#1E2E5A;transform:rotate(18deg);z-index:1}
+.hb-geo2{position:absolute;bottom:-30px;left:-30px;width:150px;height:150px;background:#243468;transform:rotate(-14deg);z-index:1}
+.hb-arc{position:absolute;border:1px solid var(--gold);border-radius:50%;opacity:.08;z-index:1}
+.hb-content{position:absolute;inset:0;z-index:5;display:flex;flex-direction:column}
+.hb-top{height:36px;display:flex;align-items:center;justify-content:space-between;padding:0 16px}
+.hb-top span{font-family:'Montserrat',sans-serif;font-size:7px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--navy)}
+.hb-body{flex:1;padding:16px 18px;display:flex;flex-direction:column;justify-content:space-between}
+.hb-badge{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--gold);padding:4px 10px;width:fit-content;margin-bottom:12px}
+.hb-badge span{font-family:'Montserrat',sans-serif;font-size:6.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold2)}
+.hb-badge .d{width:2.5px;height:2.5px;border-radius:50%;background:var(--gold)}
+.hb-rule{width:32px;height:1.5px;background:var(--gold);margin-bottom:10px}
+.hb-t1{font-family:'Playfair Display',serif;font-size:38px;font-weight:900;line-height:.95;color:var(--cream);margin-bottom:4px}
+.hb-t1 em{color:var(--gold2);font-style:italic}
+.hb-t2{font-family:'Playfair Display',serif;font-size:38px;font-weight:900;color:var(--cream);margin-bottom:14px}
+.hb-disc{font-family:'Montserrat',sans-serif;font-size:6.5px;font-weight:300;letter-spacing:.2em;text-transform:uppercase;color:var(--gold3)}
+.hb-disc .s{display:inline-block;width:2.5px;height:2.5px;border-radius:50%;background:var(--gold);margin:0 5px;vertical-align:middle;opacity:.6}
+.hb-divider{display:flex;align-items:center;margin:8px 0}
+.hb-divider .l{flex:1;height:1px;background:var(--gold);opacity:.4}
+.hb-divider .dm{width:5px;height:5px;background:var(--gold);transform:rotate(45deg);margin:0 6px}
+.hb-quote{font-family:'EB Garamond',serif;font-size:9px;font-style:italic;color:rgba(250,246,239,.5);border-left:1px solid var(--gold);padding-left:8px;line-height:1.5}
+.hb-bottom{height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;position:relative;z-index:6}
+.hb-bottom .ed{font-family:'Montserrat',sans-serif;font-size:7px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--navy)}
+.hb-pills{display:flex;gap:3px}
+.hb-pill{font-family:'Montserrat',sans-serif;font-size:7px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:var(--navy);color:var(--gold2);padding:2px 8px}
+.hb-spine{position:absolute;top:0;left:0;width:32px;height:420px;background:linear-gradient(180deg,#B8973F 0%,#C9A84C 30%,#A07830 70%,#C9A84C 100%);transform:rotateY(-90deg) translateZ(16px);transform-origin:left center;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.hb-spine::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.25) 0%,rgba(255,255,255,.12) 40%,rgba(0,0,0,.2) 100%)}
+.hb-spine-txt{writing-mode:vertical-rl;text-orientation:mixed;transform:rotate(180deg);font-family:'Playfair Display',serif;font-size:9px;font-weight:700;letter-spacing:.14em;color:var(--navy);text-transform:uppercase;position:relative;z-index:2}
+.hb-back{position:absolute;inset:0;background:#162347;transform:rotateY(180deg) translateZ(16px)}
+.hb-top-edge{position:absolute;left:0;right:0;top:0;height:32px;background:#1B2E5C;transform:rotateX(90deg) translateZ(16px);transform-origin:top center}
+.hb-bot-edge{position:absolute;left:0;right:0;bottom:0;height:32px;background:#1B2E5C;transform:rotateX(-90deg) translateZ(16px);transform-origin:bottom center}
+
+/* ─── SECTION DIVIDER ────────────────────────────── */
+.section-divider{display:flex;align-items:center;gap:0;max-width:1200px;margin:0 auto;padding:0 60px}
+.section-divider .l{flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.section-divider .d{width:8px;height:8px;background:var(--gold);transform:rotate(45deg);margin:0 14px}
+
+/* ─── SECTION COMMON ─────────────────────────────── */
+section{padding:100px 60px}
+.section-inner{max-width:1200px;margin:0 auto}
+.section-label{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.section-title{font-family:'Playfair Display',serif;font-size:52px;font-weight:900;line-height:1.05;color:var(--navy);margin-bottom:20px}
+.section-title em{color:var(--gold);font-style:italic}
+.section-subtitle{font-size:20px;line-height:1.7;color:#444;max-width:600px}
+
+/* ─── MODULES ────────────────────────────────────── */
+.modules-section{background:var(--navy);position:relative;overflow:hidden}
+.modules-section .section-title{color:var(--cream)}
+.modules-section .section-subtitle{color:var(--muted)}
+.modules-bg{position:absolute;inset:0;pointer-events:none}
+.modules-bg::before{content:'';position:absolute;top:-100px;right:-100px;width:500px;height:500px;background:var(--navy3);transform:rotate(20deg);opacity:.7}
+.modules-bg::after{content:'';position:absolute;bottom:-80px;left:-80px;width:400px;height:400px;background:var(--navy2);transform:rotate(-10deg);opacity:.7}
+.modules-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:64px}
+.module-card{background:rgba(255,255,255,.03);border:1px solid rgba(201,168,76,.15);padding:36px 32px;transition:all .3s;cursor:default;position:relative;overflow:hidden}
+.module-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .35s}
+.module-card:hover{background:rgba(201,168,76,.06);border-color:rgba(201,168,76,.4)}
+.module-card:hover::before{transform:scaleX(1)}
+.module-num{font-family:'Playfair Display',serif;font-size:56px;font-weight:900;color:rgba(201,168,76,.12);line-height:1;margin-bottom:16px;transition:color .3s}
+.module-card:hover .module-num{color:rgba(201,168,76,.25)}
+.module-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--cream);margin-bottom:12px}
+.module-desc{font-size:15px;line-height:1.65;color:rgba(250,246,239,.55);margin-bottom:20px}
+.module-tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;border:1px solid rgba(201,168,76,.3);color:rgba(201,168,76,.7);padding:4px 10px}
+
+/* ─── WHAT YOU LEARN ─────────────────────────────── */
+.learn-section{background:var(--cream)}
+.learn-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-top:64px}
+.learn-list{display:flex;flex-direction:column;gap:24px}
+.learn-item{display:flex;gap:20px;align-items:flex-start;padding:24px;background:var(--white);border:1px solid rgba(13,27,62,.08);border-left:3px solid var(--gold);transition:all .25s}
+.learn-item:hover{transform:translateX(6px);border-left-color:var(--navy);box-shadow:0 4px 20px rgba(13,27,62,.08)}
+.learn-icon{width:40px;height:40px;background:var(--navy);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.learn-icon svg{width:18px;height:18px;stroke:var(--gold2);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.learn-text strong{display:block;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);margin-bottom:5px}
+.learn-text span{font-size:16px;line-height:1.55;color:#555}
+.learn-right{display:flex;flex-direction:column;gap:32px}
+.quote-block{background:var(--navy);padding:40px;position:relative}
+.quote-block::before{content:'\201C';position:absolute;top:-10px;left:30px;font-family:'Playfair Display',serif;font-size:100px;color:var(--gold);opacity:.3;line-height:1}
+.quote-text{font-family:'Playfair Display',serif;font-size:22px;font-style:italic;font-weight:400;color:var(--cream);line-height:1.6;position:relative;z-index:1}
+.results-row{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.result-box{background:var(--navy);padding:28px 20px;text-align:center;border-top:2px solid var(--gold)}
+.result-num{font-family:'Playfair Display',serif;font-size:40px;font-weight:700;color:var(--gold2);line-height:1;margin-bottom:6px}
+.result-lbl{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+
+/* ─── FOR WHOM ────────────────────────────────────── */
+.whom-section{background:var(--navy2);padding:80px 60px}
+.whom-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:56px}
+.whom-card{background:rgba(255,255,255,.03);border:1px solid rgba(201,168,76,.12);padding:32px 24px;text-align:center;transition:all .3s}
+.whom-card:hover{background:rgba(201,168,76,.07);transform:translateY(-4px)}
+.whom-icon{width:54px;height:54px;border:1px solid rgba(201,168,76,.3);display:flex;align-items:center;justify-content:center;margin:0 auto 20px}
+.whom-icon svg{width:22px;height:22px;stroke:var(--gold2);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.whom-title{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--cream);margin-bottom:10px}
+.whom-desc{font-size:14px;line-height:1.6;color:var(--muted)}
+
+/* ─── DEVICE MOCKUP SECTION ──────────────────────── */
+.mockup-section{background:var(--navy);padding:100px 60px;position:relative;overflow:hidden}
+.mockup-section .section-title{color:var(--cream)}
+.mockup-section .section-subtitle{color:var(--muted)}
+.mockup-bg{position:absolute;inset:0;pointer-events:none}
+.mockup-bg::before{content:'';position:absolute;top:-200px;right:-200px;width:700px;height:700px;background:var(--navy3);transform:rotate(18deg);opacity:.7}
+.mockup-bg::after{content:'';position:absolute;bottom:-150px;left:-150px;width:550px;height:550px;background:var(--navy2);transform:rotate(-12deg)}
+.mockup-grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,.04) 1px,transparent 1px);background-size:54px 54px}
+.mockup-glow{position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(ellipse,rgba(201,168,76,.09) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%)}
+.mockup-inner{position:relative;z-index:5;max-width:1200px;margin:0 auto}
+.mockup-header{text-align:center;margin-bottom:80px}
+.mockup-scene{position:relative;height:560px;display:flex;align-items:center;justify-content:center}
+
+/* MacBook */
+.macbook-wrap{position:absolute;left:0;top:10px;perspective:1000px}
+.macbook{width:580px;transform-style:preserve-3d;transform:rotateX(2deg) rotateY(14deg);filter:drop-shadow(-20px 40px 60px rgba(0,0,0,.7))}
+.mb-lid{width:580px;height:368px;background:linear-gradient(135deg,#2A2A2C 0%,#1C1C1E 60%,#242426 100%);border-radius:14px 14px 4px 4px;position:relative;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.1),inset 0 1px 0 rgba(255,255,255,.18)}
+.mb-lid::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:80px;height:3px;background:#0D0D0F;border-radius:0 0 4px 4px;z-index:5}
+.mb-lid::after{content:'';position:absolute;top:8px;left:50%;transform:translateX(-50%);width:5px;height:5px;border-radius:50%;background:#2A2A2C;box-shadow:0 0 0 1px rgba(255,255,255,.1),inset 0 0 3px rgba(0,0,0,.8);z-index:6}
+.mb-screen-bezel{position:absolute;inset:14px 14px 8px;background:#0A0A0A;border-radius:6px;overflow:hidden}
+.mb-screen{position:absolute;inset:0;overflow:hidden;border-radius:5px;background:var(--navy)}
+.screen-cover{width:100%;height:100%;display:flex;align-items:stretch;position:relative;overflow:hidden}
+.screen-cover .sc-bg{position:absolute;inset:0;background:var(--navy);overflow:hidden}
+.sc-geo1{position:absolute;top:-30px;right:-30px;width:220px;height:220px;background:var(--navy3);transform:rotate(18deg)}
+.sc-geo2{position:absolute;bottom:-20px;left:-20px;width:180px;height:180px;background:var(--navy2);transform:rotate(-13deg)}
+.sc-arc{position:absolute;border:1px solid var(--gold);border-radius:50%;opacity:.08}
+.sc-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,.05) 1px,transparent 1px);background-size:30px 30px}
+.sc-band-top{position:absolute;top:0;left:0;right:0;height:22px;background:var(--gold);display:flex;align-items:center;justify-content:space-between;padding:0 12px;z-index:5}
+.sc-band-top span{font-family:'Montserrat',sans-serif;font-size:6px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--navy)}
+.sc-content{position:relative;z-index:3;padding:30px 22px 12px;display:flex;flex-direction:column;justify-content:space-between;height:100%}
+.sc-badge{display:inline-flex;align-items:center;gap:5px;border:1px solid var(--gold);padding:3px 8px;width:fit-content;margin-bottom:8px}
+.sc-badge span{font-family:'Montserrat',sans-serif;font-size:5.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold2)}
+.sc-badge .d{width:2px;height:2px;border-radius:50%;background:var(--gold)}
+.sc-rule{width:24px;height:1.5px;background:var(--gold);margin-bottom:8px}
+.sc-t1{font-family:'Playfair Display',serif;font-size:28px;font-weight:900;line-height:.95;color:var(--cream);margin-bottom:3px}
+.sc-t1 em{color:var(--gold2);font-style:italic}
+.sc-t2{font-family:'Playfair Display',serif;font-size:28px;font-weight:900;color:var(--cream);margin-bottom:10px}
+.sc-disc{font-family:'Montserrat',sans-serif;font-size:5.5px;font-weight:300;letter-spacing:.18em;text-transform:uppercase;color:var(--gold3)}
+.sc-disc .s{display:inline-block;width:2px;height:2px;border-radius:50%;background:var(--gold);margin:0 4px;vertical-align:middle;opacity:.6}
+.sc-divider{display:flex;align-items:center;margin:8px 0}
+.sc-divider .l{flex:1;height:1px;background:var(--gold);opacity:.4}
+.sc-divider .dm{width:4px;height:4px;background:var(--gold);transform:rotate(45deg);margin:0 6px}
+.sc-quote{font-family:'EB Garamond',serif;font-size:8px;font-style:italic;color:rgba(250,246,239,.45);border-left:1px solid var(--gold);padding-left:7px;line-height:1.5;margin-bottom:4px}
+.sc-band-bot{position:absolute;bottom:0;left:0;right:0;height:22px;background:var(--gold);display:flex;align-items:center;justify-content:space-between;padding:0 12px;z-index:5}
+.sc-band-bot span{font-family:'Montserrat',sans-serif;font-size:5.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--navy)}
+.sc-pills{display:flex;gap:3px}
+.sc-pill{font-family:'Montserrat',sans-serif;font-size:6px;font-weight:800;letter-spacing:.1em;background:var(--navy);color:var(--gold2);padding:2px 7px}
+.mb-glare{position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.06) 0%,rgba(255,255,255,.02) 30%,transparent 55%);border-radius:5px;pointer-events:none;z-index:10}
+.mb-hinge{width:580px;height:3px;background:linear-gradient(180deg,rgba(0,0,0,.4) 0%,transparent 100%)}
+.mb-base{width:580px;height:22px;background:linear-gradient(180deg,#3A3A3C 0%,#2C2C2E 40%,#3A3A3C 100%);border-radius:0 0 4px 4px;position:relative;box-shadow:inset 0 -1px 0 rgba(0,0,0,.5)}
+.mb-base::after{content:'';position:absolute;bottom:3px;left:50%;transform:translateX(-50%);width:100px;height:10px;background:rgba(0,0,0,.3);border-radius:3px;box-shadow:inset 0 1px 2px rgba(0,0,0,.5)}
+.mb-body{width:580px;height:9px;background:linear-gradient(180deg,#B0B2B7 0%,#C8CACC 50%,#A0A2A6 100%);border-radius:0 0 8px 8px}
+.mb-shadow{position:absolute;width:520px;height:40px;background:radial-gradient(ellipse,rgba(0,0,0,.7) 0%,transparent 70%);filter:blur(12px);bottom:-30px;left:30px}
+
+/* iPad */
+.ipad-wrap{position:absolute;right:20px;top:60px;perspective:800px}
+.ipad{width:264px;transform-style:preserve-3d;transform:rotateX(4deg) rotateY(-18deg);filter:drop-shadow(20px 40px 50px rgba(0,0,0,.7))}
+.ipad-body{width:264px;height:352px;background:linear-gradient(135deg,#2C2C2E 0%,#1C1C1E 50%,#2A2A2C 100%);border-radius:20px;position:relative;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.1),inset 0 1px 0 rgba(255,255,255,.15)}
+.ipad-body::after{content:'';position:absolute;bottom:8px;left:50%;transform:translateX(-50%);width:60px;height:3px;border-radius:2px;background:rgba(255,255,255,.15)}
+.ipad-body::before{content:'';position:absolute;top:60px;right:-3px;width:3px;height:36px;border-radius:2px;background:#3A3A3C;box-shadow:0 50px 0 #3A3A3C,0 90px 0 #3A3A3C}
+.ipad-camera{position:absolute;top:14px;left:50%;transform:translateX(-50%);width:6px;height:6px;border-radius:50%;background:#0A0A0A;box-shadow:0 0 0 1px rgba(255,255,255,.1);z-index:5}
+.ipad-bezel{position:absolute;inset:22px 14px 22px 14px;background:#080808;border-radius:8px;overflow:hidden}
+.ipad-screen{position:absolute;inset:0;background:var(--navy);border-radius:7px;overflow:hidden}
+.ipad-glare{position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.07) 0%,rgba(255,255,255,.02) 30%,transparent 55%);border-radius:7px;pointer-events:none;z-index:10}
+.ipad-shadow{position:absolute;width:240px;height:30px;background:radial-gradient(ellipse,rgba(0,0,0,.65) 0%,transparent 70%);filter:blur(10px);bottom:-28px;left:10px}
+
+/* floating badge */
+.float-badge{position:absolute;right:200px;bottom:80px;z-index:20;background:var(--gold);padding:14px 20px;box-shadow:0 8px 32px rgba(0,0,0,.5);animation:badgeFloat 4s ease-in-out infinite}
+@keyframes badgeFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.float-badge .fb-num{font-family:'Playfair Display',serif;font-size:28px;font-weight:900;color:var(--navy);line-height:1;margin-bottom:2px}
+.float-badge .fb-lbl{font-family:'Montserrat',sans-serif;font-size:8px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(13,27,62,.7)}
+
+/* mockup stats bar */
+.mockup-stats{display:flex;align-items:center;justify-content:center;gap:0;margin-top:60px;border:1px solid rgba(201,168,76,.2)}
+.mockup-stat{padding:24px 48px;text-align:center;border-right:1px solid rgba(201,168,76,.2)}
+.mockup-stat:last-child{border-right:none}
+.mockup-stat-num{font-family:'Playfair Display',serif;font-size:32px;font-weight:700;color:var(--gold2);line-height:1;margin-bottom:4px}
+.mockup-stat-lbl{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+
+/* ─── ABOUT AUTHOR ────────────────────────────────── */
+.author-section{background:var(--navy);padding:100px 60px;position:relative;overflow:hidden}
+.author-bg{position:absolute;inset:0;pointer-events:none}
+.author-bg::before{content:'';position:absolute;top:-180px;right:-160px;width:650px;height:650px;background:var(--navy3);transform:rotate(20deg)}
+.author-bg::after{content:'';position:absolute;bottom:-160px;left:-140px;width:500px;height:500px;background:var(--navy2);transform:rotate(-13deg)}
+.author-grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,.04) 1px,transparent 1px);background-size:60px 60px}
+.author-arc{position:absolute;border:1px solid var(--gold);border-radius:50%;opacity:.07}
+.author-inner{position:relative;z-index:5;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:340px 1fr;gap:100px;align-items:center}
+
+/* author card */
+.author-card{display:flex;flex-direction:column;align-items:center}
+.avatar-ring{width:240px;height:240px;border:2px solid var(--gold);padding:6px;margin-bottom:28px;position:relative}
+.avatar-ring::before{content:'';position:absolute;top:-8px;left:-8px;right:-8px;bottom:-8px;border:1px solid rgba(201,168,76,.25)}
+.avatar-inner{width:100%;height:100%;background:linear-gradient(135deg,var(--navy3) 0%,var(--navy2) 100%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.avatar-inner::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,168,76,.12) 0%,transparent 60%)}
+.avatar-initials{font-family:'Playfair Display',serif;font-size:72px;font-weight:900;color:var(--gold2);opacity:.9;position:relative;z-index:1}
+.author-name{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--cream);margin-bottom:6px;text-align:center}
+.author-title-badge{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold2);text-align:center;margin-bottom:20px}
+.author-divider{width:60px;height:1.5px;background:var(--gold);margin:0 auto 20px}
+.author-credentials{display:flex;flex-direction:column;gap:8px;width:100%}
+.cred-item{display:flex;align-items:center;gap:10px;background:rgba(201,168,76,.06);border:1px solid rgba(201,168,76,.15);padding:10px 16px}
+.cred-dot{width:5px;height:5px;background:var(--gold);transform:rotate(45deg);flex-shrink:0}
+.cred-text{font-family:'Montserrat',sans-serif;font-size:11px;color:rgba(250,246,239,.75);letter-spacing:.04em}
+
+/* author right content */
+.author-right .section-label{color:var(--gold)}
+.author-eyebrow{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.author-eyebrow::before{content:'';width:36px;height:1.5px;background:var(--gold)}
+.author-h1{font-family:'Playfair Display',serif;font-size:52px;font-weight:900;line-height:1;color:var(--cream);margin-bottom:6px}
+.author-h1 em{color:var(--gold2);font-style:italic}
+.author-lead{font-size:19px;line-height:1.75;color:rgba(250,246,239,.7);margin-bottom:36px}
+.author-lead strong{color:var(--cream);font-weight:500}
+.philosophy{border-left:3px solid var(--gold);padding:24px 28px;background:rgba(201,168,76,.05);margin-bottom:36px}
+.philosophy-label{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.philosophy-text{font-size:19px;font-style:italic;color:var(--cream);line-height:1.65;opacity:.85}
+.author-stats{display:flex;gap:0;margin-top:8px}
+.a-stat{padding:20px 32px;border:1px solid rgba(201,168,76,.2);background:rgba(201,168,76,.05);text-align:center}
+.a-stat:not(:first-child){border-left:none}
+.a-stat-num{font-family:'Playfair Display',serif;font-size:32px;font-weight:700;color:var(--gold2);line-height:1;margin-bottom:4px}
+.a-stat-lbl{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:rgba(250,246,239,.5)}
+
+/* methodology grid */
+.method-section{background:var(--cream);padding:80px 60px}
+.method-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:56px}
+.method-card{background:var(--white);border:1px solid rgba(13,27,62,.07);padding:36px 32px;border-top:3px solid var(--gold);transition:all .3s;position:relative;overflow:hidden}
+.method-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .35s}
+.method-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(13,27,62,.1)}
+.method-card:hover::after{transform:scaleX(1)}
+.method-num{font-family:'Playfair Display',serif;font-size:52px;font-weight:900;color:rgba(201,168,76,.15);line-height:1;margin-bottom:16px}
+.method-title{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);margin-bottom:10px}
+.method-desc{font-size:15px;line-height:1.65;color:#555}
+
+/* compare table */
+.why-section{background:var(--cream2);padding:80px 60px}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-top:56px;max-width:900px}
+.compare-header{background:var(--navy);padding:16px 28px}
+.compare-header span{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold2)}
+.c-typical{background:var(--white);border:1px solid rgba(13,27,62,.07);padding:18px 28px;display:flex;align-items:center;gap:12px}
+.c-this{background:rgba(201,168,76,.07);border:1px solid rgba(201,168,76,.2);padding:18px 28px;display:flex;align-items:center;gap:12px}
+.c-icon{font-size:16px;flex-shrink:0}
+.c-text{font-size:15px;line-height:1.5;color:var(--navy)}
+.c-text.muted{color:#999;text-decoration:line-through;opacity:.7}
+
+/* ─── TESTIMONIALS ───────────────────────────────── */
+.testi-section{background:var(--cream2)}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:64px}
+.testi-card{background:var(--white);border:1px solid rgba(13,27,62,.08);padding:36px 32px;position:relative}
+.testi-card::before{content:'\201C';font-family:'Playfair Display',serif;font-size:72px;color:var(--gold);opacity:.25;position:absolute;top:16px;left:24px;line-height:1}
+.testi-stars{display:flex;gap:4px;margin-bottom:16px}
+.star{color:var(--gold);font-size:16px}
+.testi-text{font-size:17px;line-height:1.7;color:#444;font-style:italic;margin-bottom:24px;padding-top:20px}
+.testi-author{display:flex;align-items:center;gap:14px;border-top:1px solid rgba(13,27,62,.08);padding-top:20px}
+.testi-avatar{width:44px;height:44px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;color:var(--gold2);flex-shrink:0}
+.testi-name{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;color:var(--navy)}
+.testi-role{font-family:'Montserrat',sans-serif;font-size:11px;color:#888;margin-top:2px}
+
+/* ─── CTA ────────────────────────────────────────── */
+.cta-section{background:var(--navy);padding:120px 60px;text-align:center;position:relative;overflow:hidden}
+.cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 50% 50%,rgba(201,168,76,.06) 0%,transparent 70%)}
+.cta-title{font-family:'Playfair Display',serif;font-size:62px;font-weight:900;line-height:1;color:var(--cream);margin-bottom:16px}
+.cta-title em{color:var(--gold2);font-style:italic}
+.cta-sub{font-size:20px;line-height:1.7;color:var(--muted);max-width:580px;margin:0 auto 52px}
+.cta-box{display:inline-flex;flex-direction:column;align-items:center;gap:16px;border:1px solid rgba(201,168,76,.3);padding:48px 60px;position:relative;z-index:1}
+.cta-price{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.cta-value{font-family:'Playfair Display',serif;font-size:18px;font-style:italic;color:var(--gold3);margin-bottom:8px}
+.btn-large{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;background:var(--gold);color:var(--navy);padding:20px 60px;text-decoration:none;transition:all .25s;display:inline-block}
+.btn-large:hover{background:var(--gold2);transform:translateY(-3px);box-shadow:0 12px 40px rgba(201,168,76,.35)}
+.cta-guarantee{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(250,246,239,.35);margin-top:8px}
+
+/* ─── FOOTER ─────────────────────────────────────── */
+footer{background:#08112A;padding:40px 60px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(201,168,76,.15)}
+.footer-brand{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--cream)}
+.footer-brand span{color:var(--gold2);font-style:italic}
+.footer-links{display:flex;gap:28px}
+.footer-links a{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:rgba(250,246,239,.35);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--gold2)}
+.footer-text{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:400;letter-spacing:.12em;color:rgba(250,246,239,.3)}
+
+/* ─── SCROLL ANIMATIONS ──────────────────────────── */
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:none}
+.reveal-left{opacity:0;transform:translateX(-32px);transition:opacity .7s ease,transform .7s ease}
+.reveal-left.visible{opacity:1;transform:none}
+.reveal-right{opacity:0;transform:translateX(32px);transition:opacity .7s ease,transform .7s ease}
+.reveal-right.visible{opacity:1;transform:none}
+
+/* ─── RESPONSIVE ─────────────────────────────────── */
+@media(max-width:1100px){
+  .author-inner{grid-template-columns:1fr;gap:60px}
+  .author-card{flex-direction:row;align-items:flex-start;gap:40px;flex-wrap:wrap}
+  .avatar-ring{width:180px;height:180px;flex-shrink:0}
+  .author-credentials{flex:1}
+}
+@media(max-width:900px){
+  nav{padding:0 24px}
+  .nav-links{display:none}
+  .hero-inner{grid-template-columns:1fr;gap:60px}
+  .hero-h1,.hero-h1b{font-size:54px}
+  .hero-book-wrap{order:-1}
+  .modules-grid{grid-template-columns:1fr}
+  .learn-grid{grid-template-columns:1fr}
+  .whom-grid{grid-template-columns:repeat(2,1fr)}
+  .testi-grid{grid-template-columns:1fr}
+  .cta-title{font-size:42px}
+  section{padding:70px 24px}
+  .mockup-section{padding:70px 24px}
+  .method-section,.why-section{padding:70px 24px}
+  .method-grid{grid-template-columns:1fr}
+  .compare-grid{grid-template-columns:1fr}
+  .author-section{padding:70px 24px}
+  .mockup-scene{height:auto;flex-direction:column;gap:40px}
+  .macbook-wrap,.ipad-wrap{position:relative;left:auto;right:auto;top:auto}
+  .float-badge{position:relative;right:auto;bottom:auto;display:inline-block}
+  footer{flex-direction:column;gap:12px;text-align:center}
+  .mockup-stats{flex-direction:column}
+  .mockup-stat{border-right:none;border-bottom:1px solid rgba(201,168,76,.2)}
+  .mockup-stat:last-child{border-bottom:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAVBAR ───────────────────────────────────────────── -->
+<nav>
+  <div class="nav-brand">Master <span>Advanced</span> English</div>
+  <div class="nav-links">
+    <a href="#modules">Modules</a>
+    <a href="#learn">What You'll Learn</a>
+    <a href="#devices">The Course</a>
+    <a href="#author">Author</a>
+    <a href="#testimonials">Reviews</a>
+    <a href="#cta" class="nav-cta">Get the Course</a>
+  </div>
+</nav>
+
+<!-- ── HERO ─────────────────────────────────────────────── -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-arc" style="width:700px;height:700px;top:-200px;right:-200px"></div>
+  <div class="hero-arc" style="width:500px;height:500px;bottom:-150px;left:-150px"></div>
+
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="badge-row">
+        <div class="dot"></div><span>B2+ Advanced</span>
+        <div class="dot"></div><span>C1 Proficiency</span>
+        <div class="dot"></div>
+      </div>
+      <div class="hero-pre"></div>
+      <h1 class="hero-h1">Master <em>Advanced</em></h1>
+      <div class="hero-h1b">English</div>
+      <div class="hero-sub">
+        Grammar<span class="sep"></span>Vocabulary<span class="sep"></span>Writing<span class="sep"></span>Speaking<span class="sep"></span>Exam Strategies
+      </div>
+      <p class="hero-desc">
+        A <strong>rigorous, exam-focused programme</strong> designed to take serious learners
+        from solid B2 to confident C1 — with academic precision, depth, and
+        <strong>real, measurable results.</strong>
+      </p>
+      <div class="cta-row">
+        <a href="#cta" class="btn-primary">Get the Course →</a>
+        <a href="#modules" class="btn-ghost">Explore Modules ↓</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item"><div class="stat-num">6</div><div class="stat-lbl">Modules</div></div>
+        <div class="stat-item"><div class="stat-num">40+</div><div class="stat-lbl">Exercises</div></div>
+        <div class="stat-item"><div class="stat-num">C1</div><div class="stat-lbl">Target Level</div></div>
+        <div class="stat-item"><div class="stat-num">7.0+</div><div class="stat-lbl">IELTS Equivalent</div></div>
+      </div>
+    </div>
+
+    <!-- 3D BOOK -->
+    <div class="hero-book-wrap">
+      <div>
+        <div class="hero-book">
+          <div class="hb-front">
+            <div class="hb-geo1"></div><div class="hb-geo2"></div>
+            <div class="hb-arc" style="width:280px;height:280px;top:-90px;right:-90px"></div>
+            <div class="hb-content">
+              <div class="hb-top">
+                <span>Advanced Academic Press</span><span>Proficiency Series</span>
+              </div>
+              <div class="hb-body">
+                <div>
+                  <div class="hb-badge"><div class="d"></div><span>B2+</span><div class="d"></div><span>C1</span><div class="d"></div></div>
+                  <div class="hb-rule"></div>
+                  <div class="hb-t1">Master <em>Advanced</em></div>
+                  <div class="hb-t2">English</div>
+                  <div class="hb-disc">Grammar<span class="s"></span>Vocab<span class="s"></span>Writing<span class="s"></span>Exams</div>
+                </div>
+                <div>
+                  <div class="hb-divider"><div class="l"></div><div class="dm"></div><div class="l"></div></div>
+                  <p class="hb-quote">"Precision, register, and strategic awareness."</p>
+                </div>
+              </div>
+              <div class="hb-bottom">
+                <span class="ed">First Edition</span>
+                <div class="hb-pills"><span class="hb-pill">B2+</span><span class="hb-pill">C1</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="hb-spine"><span class="hb-spine-txt">Master Advanced English</span></div>
+          <div class="hb-back"></div>
+          <div class="hb-top-edge"></div>
+          <div class="hb-bot-edge"></div>
+        </div>
+        <div style="width:260px;height:30px;background:radial-gradient(ellipse,rgba(0,0,0,.65) 0%,transparent 70%);filter:blur(10px);margin:8px auto 0"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── MODULES ───────────────────────────────────────────── -->
+<section class="modules-section" id="modules">
+  <div class="modules-bg"></div>
+  <div class="section-inner" style="position:relative;z-index:5">
+    <div class="section-label reveal">The Complete Programme</div>
+    <h2 class="section-title reveal">Six <em>expert</em> modules.<br>One complete transformation.</h2>
+    <p class="section-subtitle reveal">Every module includes clear explanations, detailed examples, graded exercises, full answer keys, and style notes — the standard of a university language course.</p>
+
+    <div class="modules-grid">
+      <div class="module-card reveal">
+        <div class="module-num">01</div>
+        <div class="module-title">Grammar Mastery</div>
+        <p class="module-desc">Advanced tenses, mixed conditionals, subjunctive mood, formal inversion, passive reporting verbs, cleft sentences, nominalisation, and ellipsis.</p>
+        <div class="module-tags"><span class="tag">Conditionals</span><span class="tag">Inversion</span><span class="tag">Cleft sentences</span><span class="tag">Subjunctive</span></div>
+      </div>
+      <div class="module-card reveal">
+        <div class="module-num">02</div>
+        <div class="module-title">Advanced Vocabulary</div>
+        <p class="module-desc">Academic Word List families in context, precise collocations (verb-noun, adj-noun, adverb-adj), idioms, register shifts, phrasal verbs, false friends.</p>
+        <div class="module-tags"><span class="tag">AWL</span><span class="tag">Collocations</span><span class="tag">Register</span><span class="tag">False friends</span></div>
+      </div>
+      <div class="module-card reveal">
+        <div class="module-num">03</div>
+        <div class="module-title">Reading Strategies</div>
+        <p class="module-desc">Inference and implicit meaning, author tone and bias, cohesion and coherence, skimming vs scanning vs close reading — with an annotated practice passage.</p>
+        <div class="module-tags"><span class="tag">Inference</span><span class="tag">Tone & bias</span><span class="tag">Cohesion</span><span class="tag">Close reading</span></div>
+      </div>
+      <div class="module-card reveal">
+        <div class="module-num">04</div>
+        <div class="module-title">Academic Writing</div>
+        <p class="module-desc">Essay structures (argumentative, discursive, problem-solution), linking devices by function, hedging language, register, and a fully marked model essay.</p>
+        <div class="module-tags"><span class="tag">Essay structure</span><span class="tag">Hedging</span><span class="tag">Linking devices</span><span class="tag">PEEL</span></div>
+      </div>
+      <div class="module-card reveal">
+        <div class="module-num">05</div>
+        <div class="module-title">Speaking & Listening</div>
+        <p class="module-desc">Natural speech features (elision, assimilation, contractions), discourse markers, expressing nuance and certainty, plus IELTS/Cambridge model answers.</p>
+        <div class="module-tags"><span class="tag">IELTS speaking</span><span class="tag">Discourse markers</span><span class="tag">Natural speech</span><span class="tag">Fluency</span></div>
+      </div>
+      <div class="module-card reveal">
+        <div class="module-num">06</div>
+        <div class="module-title">Exam Strategies</div>
+        <p class="module-desc">Use-of-English tasks (word formation, open cloze, key word transformations), time management, trap avoidance, and a complete self-assessment checklist.</p>
+        <div class="module-tags"><span class="tag">Key word trans.</span><span class="tag">Open cloze</span><span class="tag">Time management</span><span class="tag">Self-assessment</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHAT YOU LEARN ────────────────────────────────────── -->
+<section class="learn-section" id="learn">
+  <div class="section-inner">
+    <div class="section-label reveal">What You'll Achieve</div>
+    <h2 class="section-title reveal">Go beyond <em>good.</em><br>Become exceptional.</h2>
+    <div class="learn-grid">
+      <div class="learn-list">
+        <div class="learn-item reveal-left">
+          <div class="learn-icon"><svg viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+          <div class="learn-text"><strong>Deploy advanced grammar with confidence</strong><span>Use mixed conditionals, cleft sentences, and formal inversion naturally — not just in exercises, but in real communication.</span></div>
+        </div>
+        <div class="learn-item reveal-left">
+          <div class="learn-icon"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+          <div class="learn-text"><strong>Write with academic precision</strong><span>Structure compelling essays, command formal register, hedge appropriately, and produce writing that reads like a native expert.</span></div>
+        </div>
+        <div class="learn-item reveal-left">
+          <div class="learn-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+          <div class="learn-text"><strong>Speak with nuance and strategic control</strong><span>Express degrees of certainty, manage difficult questions, and use discourse markers that signal genuine C1 fluency.</span></div>
+        </div>
+        <div class="learn-item reveal-left">
+          <div class="learn-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <div class="learn-text"><strong>Excel in B2/C1 exams</strong><span>Master Use-of-English task types, avoid common traps, manage time precisely, and self-assess your progress systematically.</span></div>
+        </div>
+      </div>
+      <div class="learn-right reveal-right">
+        <div class="quote-block">
+          <p class="quote-text">"The gap between a good English speaker and an exceptional one is not vocabulary size — it is precision, register, and strategic awareness."</p>
+        </div>
+        <div class="results-row">
+          <div class="result-box"><div class="result-num">6</div><div class="result-lbl">Modules</div></div>
+          <div class="result-box"><div class="result-num">C1</div><div class="result-lbl">Target level</div></div>
+          <div class="result-box"><div class="result-num">7.0+</div><div class="result-lbl">IELTS equiv.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOR WHOM ───────────────────────────────────────────── -->
+<section class="whom-section">
+  <div class="section-inner">
+    <div class="section-label reveal" style="color:var(--gold)">Who This Is For</div>
+    <h2 class="section-title reveal" style="color:var(--cream)">Built for <em>serious</em> learners.</h2>
+    <div class="whom-grid">
+      <div class="whom-card reveal">
+        <div class="whom-icon"><svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+        <div class="whom-title">University Students</div>
+        <p class="whom-desc">Preparing for academic writing, IELTS, or TOEFL at the B2/C1 threshold.</p>
+      </div>
+      <div class="whom-card reveal">
+        <div class="whom-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+        <div class="whom-title">Professionals</div>
+        <p class="whom-desc">Needing to write reports, emails, and presentations in polished academic English.</p>
+      </div>
+      <div class="whom-card reveal">
+        <div class="whom-icon"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+        <div class="whom-title">Cambridge / IELTS Candidates</div>
+        <p class="whom-desc">Targeting a Band 7+ or a C1 Advanced certificate with a structured approach.</p>
+      </div>
+      <div class="whom-card reveal">
+        <div class="whom-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+        <div class="whom-title">Self-Directed Learners</div>
+        <p class="whom-desc">Who already knows the basics and wants a rigorous, structured path to fluency.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── DEVICE MOCKUP ─────────────────────────────────────── -->
+<section class="mockup-section" id="devices">
+  <div class="mockup-bg"></div>
+  <div class="mockup-grid-bg"></div>
+  <div class="mockup-glow"></div>
+  <div class="mockup-inner">
+    <div class="mockup-header">
+      <div class="section-label reveal" style="text-align:center">Available On Every Device</div>
+      <h2 class="section-title reveal" style="color:var(--cream);text-align:center">Study anywhere,<br><em>anytime.</em></h2>
+      <p class="section-subtitle reveal" style="margin:0 auto;text-align:center">A clean, beautifully structured PDF course — readable on any screen, printable if you prefer paper. No app required, no subscription needed.</p>
+    </div>
+
+    <div class="mockup-scene">
+      <!-- MacBook -->
+      <div class="macbook-wrap">
+        <div class="macbook">
+          <div class="mb-lid">
+            <div class="mb-screen-bezel">
+              <div class="mb-screen">
+                <div class="screen-cover">
+                  <div class="sc-bg">
+                    <div class="sc-geo1"></div><div class="sc-geo2"></div>
+                    <div class="sc-arc" style="width:320px;height:320px;top:-100px;right:-100px"></div>
+                    <div class="sc-grid"></div>
+                  </div>
+                  <div class="sc-band-top"><span>Advanced Academic Press</span><span>English Proficiency Series</span></div>
+                  <div class="sc-content">
+                    <div>
+                      <div class="sc-badge"><div class="d"></div><span>B2+ Advanced</span><div class="d"></div><span>C1 Proficiency</span><div class="d"></div></div>
+                      <div class="sc-rule"></div>
+                      <div class="sc-t1">Master <em>Advanced</em></div>
+                      <div class="sc-t2">English</div>
+                      <div class="sc-disc">Grammar<span class="s"></span>Vocabulary<span class="s"></span>Writing<span class="s"></span>Speaking<span class="s"></span>Exams</div>
+                    </div>
+                    <div>
+                      <div class="sc-divider"><div class="l"></div><div class="dm"></div><div class="l"></div></div>
+                      <p class="sc-quote">"The gap between a good speaker and an exceptional one is precision, register, and strategic awareness."</p>
+                    </div>
+                  </div>
+                  <div class="sc-band-bot"><span>Complete Course · First Edition</span><div class="sc-pills"><span class="sc-pill">B2+</span><span class="sc-pill">C1</span></div></div>
+                  <div class="mb-glare"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mb-hinge"></div>
+          <div class="mb-base"></div>
+          <div class="mb-body"></div>
+          <div class="mb-shadow"></div>
+        </div>
+      </div>
+
+      <!-- iPad -->
+      <div class="ipad-wrap">
+        <div class="ipad">
+          <div class="ipad-body">
+            <div class="ipad-camera"></div>
+            <div class="ipad-bezel">
+              <div class="ipad-screen">
+                <div class="sc-bg">
+                  <div class="sc-geo1"></div><div class="sc-geo2"></div>
+                  <div class="sc-arc" style="width:260px;height:260px;top:-80px;right:-80px"></div>
+                  <div class="sc-grid"></div>
+                </div>
+                <div class="sc-band-top"><span>Advanced Academic Press</span><span>B2+ / C1</span></div>
+                <div class="sc-content">
+                  <div>
+                    <div class="sc-badge" style="margin-bottom:6px"><div class="d"></div><span>B2+</span><div class="d"></div><span>C1</span><div class="d"></div></div>
+                    <div class="sc-rule"></div>
+                    <div class="sc-t1">Master <em>Advanced</em></div>
+                    <div class="sc-t2">English</div>
+                    <div class="sc-disc">Grammar<span class="s"></span>Vocab<span class="s"></span>Writing<span class="s"></span>Exams</div>
+                  </div>
+                  <div>
+                    <div class="sc-divider"><div class="l"></div><div class="dm"></div><div class="l"></div></div>
+                    <p class="sc-quote">"Precision, register, and strategic awareness."</p>
+                  </div>
+                </div>
+                <div class="sc-band-bot"><span>First Edition</span><div class="sc-pills"><span class="sc-pill">B2+</span><span class="sc-pill">C1</span></div></div>
+                <div class="ipad-glare"></div>
+              </div>
+            </div>
+          </div>
+          <div class="ipad-shadow"></div>
+        </div>
+      </div>
+
+      <!-- Floating badge -->
+      <div class="float-badge">
+        <div class="fb-num">C1</div>
+        <div class="fb-lbl">Target Level</div>
+      </div>
+    </div>
+
+    <!-- Stats bar -->
+    <div class="mockup-stats reveal">
+      <div class="mockup-stat"><div class="mockup-stat-num">PDF</div><div class="mockup-stat-lbl">Instant Download</div></div>
+      <div class="mockup-stat"><div class="mockup-stat-num">6</div><div class="mockup-stat-lbl">Modules</div></div>
+      <div class="mockup-stat"><div class="mockup-stat-num">40+</div><div class="mockup-stat-lbl">Exercises</div></div>
+      <div class="mockup-stat"><div class="mockup-stat-num">7.0+</div><div class="mockup-stat-lbl">IELTS equiv.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ABOUT AUTHOR ──────────────────────────────────────── -->
+<section class="author-section" id="author">
+  <div class="author-bg"></div>
+  <div class="author-grid-bg"></div>
+  <div class="author-arc" style="width:700px;height:700px;top:-200px;right:-200px"></div>
+  <div class="author-arc" style="width:500px;height:500px;bottom:-150px;left:-150px"></div>
+
+  <div class="author-inner">
+    <!-- Author card -->
+    <div class="author-card reveal-left">
+      <div class="avatar-ring">
+        <div class="avatar-inner">
+          <div class="avatar-initials">MA</div>
+        </div>
+      </div>
+      <div class="author-name">Morgan Ashfield</div>
+      <div class="author-title-badge">Language Educator & C1 Specialist</div>
+      <div class="author-divider"></div>
+      <div class="author-credentials">
+        <div class="cred-item"><div class="cred-dot"></div><span class="cred-text">MA Applied Linguistics — University of Edinburgh</span></div>
+        <div class="cred-item"><div class="cred-dot"></div><span class="cred-text">Cambridge DELTA Certified Examiner</span></div>
+        <div class="cred-item"><div class="cred-dot"></div><span class="cred-text">12 years teaching at B2–C1 level</span></div>
+        <div class="cred-item"><div class="cred-dot"></div><span class="cred-text">Former IELTS Chief Assessor, West Africa</span></div>
+        <div class="cred-item"><div class="cred-dot"></div><span class="cred-text">3,000+ learners across 40+ countries</span></div>
+      </div>
+    </div>
+
+    <!-- Author right content -->
+    <div class="author-right reveal-right">
+      <div class="author-eyebrow">About the Author</div>
+      <div class="hero-pre"></div>
+      <div class="author-h1">A course built on</div>
+      <div class="author-h1" style="margin-bottom:24px"><em>12 years</em> of teaching.</div>
+      <p class="author-lead">
+        This course is not the product of a weekend project — it is the distillation
+        of <strong>over a decade of classroom experience</strong>, thousands of hours of
+        student feedback, and a clear-eyed analysis of where B2 learners consistently
+        stall on their path to C1.
+      </p>
+      <div class="philosophy">
+        <div class="philosophy-label">Teaching philosophy</div>
+        <p class="philosophy-text">"The gap between a good English speaker and an exceptional one is not vocabulary size. It is precision, register, and strategic awareness — and all three can be taught."</p>
+      </div>
+      <div class="author-stats">
+        <div class="a-stat"><div class="a-stat-num">12</div><div class="a-stat-lbl">Years teaching</div></div>
+        <div class="a-stat"><div class="a-stat-num">3K+</div><div class="a-stat-lbl">Students</div></div>
+        <div class="a-stat"><div class="a-stat-num">40+</div><div class="a-stat-lbl">Countries</div></div>
+        <div class="a-stat"><div class="a-stat-num">7.5</div><div class="a-stat-lbl">Avg. IELTS gain</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── METHODOLOGY ───────────────────────────────────────── -->
+<section class="method-section">
+  <div class="section-inner">
+    <div class="section-label reveal">How this course was built</div>
+    <h2 class="section-title reveal">A <em>methodology</em> grounded<br>in evidence, not intuition.</h2>
+    <p class="section-subtitle reveal" style="margin-bottom:0">Every structural decision — from sequencing to exercise design to annotation style — reflects patterns observed across thousands of real learner interactions.</p>
+    <div class="method-grid">
+      <div class="method-card reveal"><div class="method-num">01</div><div class="method-title">Error Pattern Analysis</div><p class="method-desc">The course targets the specific grammatical and lexical errors most frequently observed in B2 writers and speakers — not a generic syllabus, but a precision-mapped curriculum.</p></div>
+      <div class="method-card reveal"><div class="method-num">02</div><div class="method-title">Corpus-Informed Vocabulary</div><p class="method-desc">Every vocabulary item, collocation, and idiom was selected based on frequency data from academic and professional corpora — not intuition or outdated word lists alone.</p></div>
+      <div class="method-card reveal"><div class="method-num">03</div><div class="method-title">Exam-Aligned Tasks</div><p class="method-desc">Exercises mirror the exact formats and cognitive demands of Cambridge C1 Advanced, IELTS Academic, and TOEFL iBT — ensuring that learning transfers directly to performance.</p></div>
+      <div class="method-card reveal"><div class="method-num">04</div><div class="method-title">Annotated Models</div><p class="method-desc">Model essays, passages, and spoken answers are not just presented — they are annotated in detail, making the criteria for success explicit and reproducible.</p></div>
+      <div class="method-card reveal"><div class="method-num">05</div><div class="method-title">Register Awareness</div><p class="method-desc">Every module builds explicit awareness of register — the capacity to match linguistic form to context — which research consistently identifies as the most reliable differentiator of C1 competence.</p></div>
+      <div class="method-card reveal"><div class="method-num">06</div><div class="method-title">Progressive Complexity</div><p class="method-desc">Modules build on each other deliberately — grammatical structures from Module 1 reappear in Module 4 writing tasks, vocabulary from Module 2 surfaces in Module 3 reading passages.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHY DIFFERENT ─────────────────────────────────────── -->
+<section class="why-section">
+  <div class="section-inner">
+    <div class="section-label reveal">What sets this apart</div>
+    <h2 class="section-title reveal">Not just <em>another</em> English course.</h2>
+    <div class="compare-grid">
+      <div class="compare-header"><span>✗ Typical B2 Course</span></div>
+      <div class="compare-header" style="background:var(--gold)"><span style="color:var(--navy)">✓ Master Advanced English</span></div>
+      <div class="c-typical"><span class="c-icon">—</span><span class="c-text muted">Generic grammar syllabus, not targeted to real errors</span></div>
+      <div class="c-this"><span class="c-icon">✦</span><span class="c-text">Error-pattern analysis — teaches what learners actually get wrong</span></div>
+      <div class="c-typical"><span class="c-icon">—</span><span class="c-text muted">Vocabulary lists with isolated definitions</span></div>
+      <div class="c-this"><span class="c-icon">✦</span><span class="c-text">AWL words in context with collocations, register notes, and exercises</span></div>
+      <div class="c-typical"><span class="c-icon">—</span><span class="c-text muted">Model essays without explanation</span></div>
+      <div class="c-this"><span class="c-icon">✦</span><span class="c-text">Fully annotated model essay with examiner-style marking commentary</span></div>
+      <div class="c-typical"><span class="c-icon">—</span><span class="c-text muted">Speaking tips without structured practice</span></div>
+      <div class="c-this"><span class="c-icon">✦</span><span class="c-text">IELTS/Cambridge model answers with C1-criteria analysis</span></div>
+      <div class="c-typical"><span class="c-icon">—</span><span class="c-text muted">Exercises without answer keys or explanation</span></div>
+      <div class="c-this"><span class="c-icon">✦</span><span class="c-text">Every exercise has a full answer key with style notes</span></div>
+      <div class="c-typical"><span class="c-icon">—</span><span class="c-text muted">No self-assessment framework</span></div>
+      <div class="c-this"><span class="c-icon">✦</span><span class="c-text">20-point self-assessment checklist — know exactly where you stand</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ──────────────────────────────────────── -->
+<section class="testi-section" id="testimonials">
+  <div class="section-inner">
+    <div class="section-label reveal">What Learners Say</div>
+    <h2 class="section-title reveal">Results that <em>speak</em> for themselves.</h2>
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <div class="testi-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+        <p class="testi-text">"The grammar module alone transformed my writing. The section on cleft sentences and nominalisation gave me tools I had never encountered in five years of studying English."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">AM</div>
+          <div><div class="testi-name">Amina Mbaye</div><div class="testi-role">Graduate Student · Dakar → London</div></div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+        <p class="testi-text">"I scored 7.5 on IELTS after working through this course for eight weeks. The exam strategies module is worth the entire course on its own — the key word transformations section is exceptional."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">KO</div>
+          <div><div class="testi-name">Kwame Osei</div><div class="testi-role">Finance Professional · Accra</div></div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+        <p class="testi-text">"This is not a passive course. The exercises are demanding, the explanations precise, and the annotated essay alone changed how I think about academic writing. University-level material."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">SC</div>
+          <div><div class="testi-name">Sofia Carvalho</div><div class="testi-role">Cambridge C1 Advanced · Lisbon</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ───────────────────────────────────────────────── -->
+<section class="cta-section" id="cta">
+  <div class="section-inner" style="display:flex;flex-direction:column;align-items:center">
+    <div class="section-label">Start Today</div>
+    <h2 class="cta-title reveal">Your <em>C1</em> moment<br>starts here.</h2>
+    <p class="cta-sub reveal">Everything you need to reach B2+ / C1 — grammar, vocabulary, writing, speaking, and exam strategy — in one rigorous, complete course.</p>
+    <div class="cta-box reveal">
+      <div class="cta-price">Complete Course — Instant Download</div>
+      <div class="cta-value">6 modules · 40+ exercises · Answer keys included</div>
+      <a href="#" class="btn-large">Download the Course Now →</a>
+      <div class="cta-guarantee">PDF Format · Immediate Access · Study at Your Own Pace</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ────────────────────────────────────────────── -->
+<footer>
+  <div class="footer-brand">Master <span>Advanced</span> English</div>
+  <div class="footer-links">
+    <a href="#modules">Modules</a>
+    <a href="#author">Author</a>
+    <a href="#testimonials">Reviews</a>
+    <a href="#cta">Get the Course</a>
+  </div>
+  <div class="footer-text">B2+ / C1 Complete Course · Advanced Academic Press · First Edition</div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 80);
+    }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
